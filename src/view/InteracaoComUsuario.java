@@ -8,22 +8,19 @@ import java.io.IOException;
 public class InteracaoComUsuario {
     private final ApiClient apiClient = new ApiClient();
 
-    public String mensagemValorDesejado() {
-        return "Qual valor deseja converter?";
-    }
 
     public String mensagemValorDesejado(String de, String para) {
         return "Digite o valor em " + de + " para converter em " + para + ":";
     }
 
-    public String mensagemSaudacoes() {
+    public String menu() {
         return """
                 1) Dólar => Real brasileiro
                 2) Euro => Dólar
-                3) Real brasileiro => Moeda chinesa
-                4) Real brasileiro => Dólar
-                5) Dólar => Peso colombiano
-                6) Peso colombiano => Dólar
+                3) Real brasileiro => Renminbi
+                4) Real brasileiro => Wones
+                5) Real brasileiro => Ienes
+                6) Ienes => Renminbi
                 7) Sair
                 Escolha uma opção válida:
                 """;
@@ -38,8 +35,26 @@ public class InteracaoComUsuario {
         Moedas moedas = apiClient.buscaApi("EUR");
         return valorParaConverter * moedas.getUSD();
     }
+
     public double realParaYuan(double valorParaConverter) throws IOException, InterruptedException {
         Moedas moedas = apiClient.buscaApi("BRL");
         return valorParaConverter * moedas.getCNY();
     }
+
+    public double realParaWones(double valorParaConverter) throws IOException, InterruptedException {
+        Moedas moedas = apiClient.buscaApi("BRL");
+        return valorParaConverter * moedas.getKRW();
+    }
+
+    public double realParaIenes(double valorParaConverter) throws IOException, InterruptedException {
+        Moedas moedas = apiClient.buscaApi("BRL");
+        return valorParaConverter * moedas.getJPY();
+    }
+
+    public double ienesParaYuan(double valorParaConverter) throws IOException, InterruptedException {
+        Moedas moedas = apiClient.buscaApi("JPY");
+        return valorParaConverter * moedas.getCNY();
+    }
+
+
 }

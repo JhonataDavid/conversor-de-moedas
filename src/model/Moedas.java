@@ -7,6 +7,7 @@ public class Moedas {
     private double ARS;
     private double CNY;
     private double JPY;
+    private double KRW;
 
     public double getBRL() { return BRL; }
     public void setBRL(double BRL) { this.BRL = BRL; }
@@ -26,6 +27,13 @@ public class Moedas {
     public double getJPY() { return JPY; }
     public void setJPY(double JPY) { this.JPY = JPY; }
 
+    public double getKRW() {
+        return KRW;
+    }
+    public void setKRW(double KRW) {
+        this.KRW = KRW;
+    }
+
     @Override
     public String toString() {
         return String.format("""
@@ -36,6 +44,7 @@ public class Moedas {
                 ARS: %.2f
                 CNY: %.2f
                 JPY: %.2f
-                """, BRL, USD, EUR, ARS, CNY, JPY);
+                KRW: %.2f
+                """, BRL, USD, EUR, ARS, CNY, JPY,KRW);
     }
 }

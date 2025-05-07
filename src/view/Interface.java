@@ -10,8 +10,13 @@ public class Interface {
         Scanner scanner = new Scanner(System.in);
         int opcao = 0;
 
+        System.out.println("""
+                -----------------------------------------------------
+                  $   Seja bem-vindo(a) ao Conversor de Moedas   $
+                -----------------------------------------------------
+                """);
         while (opcao != 7) {
-            System.out.println(i.mensagemSaudacoes());
+            System.out.println(i.menu());
             try {
                 opcao = scanner.nextInt();
             } catch (InputMismatchException e) {
@@ -51,6 +56,42 @@ public class Interface {
                         double valor = scanner.nextDouble();
                         double resultado = i.realParaYuan(valor);
                         System.out.printf("O valor de %.2f [BRL] convertido para [Yuan] é: %.2f%n", valor, resultado);
+                    } catch (InputMismatchException e) {
+                        System.out.println("Entrada inválida. Digite um número.");
+                        scanner.nextLine();
+                    }
+                    break;
+
+                case 4:
+                    try {
+                        System.out.println(i.mensagemValorDesejado("real", "wones"));
+                        double valor = scanner.nextDouble();
+                        double resultado = i.realParaWones(valor);
+                        System.out.printf("O valor de %.2f [BRL] convertido para [KRW] é: %.2f%n", valor, resultado);
+                    } catch (InputMismatchException e) {
+                        System.out.println("Entrada inválida. Digite um número.");
+                        scanner.nextLine();
+                    }
+                    break;
+
+                case 5:
+                    try {
+                        System.out.println(i.mensagemValorDesejado("real", "ienes"));
+                        double valor = scanner.nextDouble();
+                        double resultado = i.realParaIenes(valor);
+                        System.out.printf("O valor de %.2f [BRW] convertido para [JPY] é: %.2f%n", valor, resultado);
+                    } catch (InputMismatchException e) {
+                        System.out.println("Entrada inválida. Digite um número.");
+                        scanner.nextLine();
+                    }
+                    break;
+
+                    case 6:
+                    try {
+                        System.out.println(i.mensagemValorDesejado("ienes", "Renminbi"));
+                        double valor = scanner.nextDouble();
+                        double resultado = i.ienesParaYuan(valor);
+                        System.out.printf("O valor de %.2f [JPY] convertido para [CNY] é: %.2f%n", valor, resultado);
                     } catch (InputMismatchException e) {
                         System.out.println("Entrada inválida. Digite um número.");
                         scanner.nextLine();
