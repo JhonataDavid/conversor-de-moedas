@@ -49,6 +49,7 @@ Compile os arquivos:
 javac -d out src/**/*.java
 Execute a aplicação:
 java -cp out view.Interface
+
 ⚠️ Certifique-se de ter o Java instalado e configurado na sua máquina (java -version).
 
 💡 Exemplo de uso
@@ -65,25 +66,27 @@ Escolha uma opção válida:
 Digite o valor em dollar para converter em real:
 100
 O valor de 100.00 [USD] convertido para [BRL] é: 517.45
+
 📦 Organização das classes
 
 model/ApiClient: responsável por se comunicar com a API
 model/ApiResponse e Moedas: modelos para mapear os dados JSON
 view/InteracaoComUsuario: lógica de conversão e mensagens
 view/Interface: interface principal de interação via terminal
+
 ❗ Observação
 
 Este projeto usa uma chave de API gratuita com limite de requisições. Para evitar falhas, é recomendado criar sua própria chave em exchangerate-api.com e substituí-la na ApiClient.
 
 // Linha que pode ser alterada com sua própria chave
 this.endereco = "https://v6.exchangerate-api.com/v6/SUA_CHAVE_AQUI/latest/USD";
+
 🧑‍💻 Autor
 
 Desenvolvido por Jhonata David como parte de seus estudos com Java e APIs.
 
 📚 Programa ONE da Oracle & Alura
-📌 Estudante de Análise e Desenvolvimento de Sistemas
-🔗 LinkedIn (adicione o link real)
+🔗 LinkedIn (www.linkedin.com/in/jhonatadavid-backend)
 
 📜 Licença
 
@@ -92,7 +95,3 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes
 ⭐ Gostou do projeto?
 Deixe uma ⭐ no repositório e contribua com sugestões ou melhorias! 🙌
 
-
----
-
-Se quiser, posso gerar esse arquivo pronto pra você em `.md`. Deseja que eu faça isso?
