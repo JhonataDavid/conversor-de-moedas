@@ -1,7 +1,6 @@
 package model;
 
 import com.google.gson.Gson;
-import exceptions.ErroAoPesquisarEnderecoException;
 
 import java.io.IOException;
 import java.net.URI;
@@ -23,7 +22,7 @@ public class ApiClient {
         return response.body();
     }
 
-    public Moedas buscaApi(String moeda) throws IOException, InterruptedException {
+    public Moedas buscaApi(String moeda) {
         //Retorna uma api serilializada em Moedas
         try {
             this.endereco = "https://v6.exchangerate-api.com/v6/***REMOVED***/latest/" + moeda.toUpperCase();
@@ -38,8 +37,8 @@ public class ApiClient {
 
             return apiResponse.getConversion_rates();
 
-        } catch (ErroAoPesquisarEnderecoException e) {
-            throw new ErroAoPesquisarEnderecoException("Erro no endereço solicitado! Verifique e tente novamente.");
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException("Erro ao acessar a api! " + e.getMessage());
         }
     }
 }
