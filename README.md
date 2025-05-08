@@ -18,13 +18,13 @@ Este projeto foi desenvolvido com o objetivo de praticar os conceitos de:
 
 O programa apresenta um menu interativo no terminal, onde você pode escolher entre diferentes opções de conversão de moedas, como:
 
-1. Dólar para Real brasileiro 🇺🇸➡🇧🇷  
-2. Euro para Dólar 💶➡💵  
-3. Real brasileiro para Yuan 🇧🇷➡🇨🇳  
-4. Real brasileiro para Wones 🇧🇷➡🇰🇷  
-5. Real brasileiro para Ienes 🇧🇷➡🇯🇵  
-6. Ienes para Yuan 🇯🇵➡🇨🇳  
-7. Sair 🚪
+1) Dólar americano → Real brasileiro 🇺🇸➡🇧🇷
+2) Euro → Dólar americano 💶➡💵
+3) Real brasileiro → Yuan chinês 🇧🇷➡🇨🇳
+4) Real brasileiro → Won sul-coreano 🇧🇷➡🇰🇷
+5) Real brasileiro → Iene japonês 🇧🇷➡🇯🇵
+6) Iene japonês → Yuan chinês 🇯🇵➡🇨🇳
+7) Sair 🚪
 
 Você informa o valor a ser convertido e o sistema retorna o valor atualizado com base na taxa de câmbio atual da API.
 
@@ -58,8 +58,8 @@ java -cp out view.Interface
   $   Seja bem-vindo(a) ao Conversor de Moedas   $
 -----------------------------------------------------
 
-1) Dólar => Real brasileiro
-2) Euro => Dólar
+1) Dólar americano => Real brasileiro
+2) Euro => Dólar americano
 ...
 Escolha uma opção válida:
 1
