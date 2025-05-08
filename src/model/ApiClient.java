@@ -24,7 +24,7 @@ public class ApiClient {
 
     public Moedas buscaApi(String moeda) {
         try {
-            this.endereco = "https://v6.exchangerate-api.com/v6/YOU_KEY/" + moeda.toUpperCase();
+            this.endereco = "https://v6.exchangerate-api.com/v6/YOU_API_KEY/" + moeda.toUpperCase();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(this.endereco))
                     .build();
