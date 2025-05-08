@@ -20,5 +20,3 @@ public class ApiResponse{
         this.conversion_rates = conversion_rates;
     }
 }
-
-

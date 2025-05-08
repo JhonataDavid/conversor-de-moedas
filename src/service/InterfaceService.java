@@ -1,11 +1,11 @@
-package view;
+package service;
 
 import model.ApiClient;
 import model.Moedas;
 
 import java.io.IOException;
 
-public class InteracaoComUsuario {
+public class InterfaceService {
     private final ApiClient apiClient = new ApiClient();
 
 
@@ -15,23 +15,23 @@ public class InteracaoComUsuario {
 
     public String menu() {
         return """
-                1) Dólar => Real brasileiro
-                2) Euro => Dólar
-                3) Real brasileiro => Renminbi
-                4) Real brasileiro => Wones
-                5) Real brasileiro => Ienes
-                6) Ienes => Renminbi
+                1) Dólar americano → Real brasileiro
+                2) Euro → Dólar americano
+                3) Real brasileiro → Yuan chinês
+                4) Real brasileiro → Won sul-coreano
+                5) Real brasileiro → Iene japonês
+                6) Iene japonês → Yuan chinês
                 7) Sair
                 Escolha uma opção válida:
                 """;
     }
 
-    public double dollarParaReal(double valorParaConverter) throws IOException, InterruptedException {
+    public double dolarParaReal(double valorParaConverter) throws IOException, InterruptedException {
         Moedas moedas = apiClient.buscaApi("USD");
         return valorParaConverter * moedas.getBRL();
     }
 
-    public double euroParaDollar(double valorParaConverter) throws IOException, InterruptedException {
+    public double euroParaDolar(double valorParaConverter) throws IOException, InterruptedException {
         Moedas moedas = apiClient.buscaApi("EUR");
         return valorParaConverter * moedas.getUSD();
     }
@@ -41,20 +41,19 @@ public class InteracaoComUsuario {
         return valorParaConverter * moedas.getCNY();
     }
 
-    public double realParaWones(double valorParaConverter) throws IOException, InterruptedException {
+    public double realParaWons(double valorParaConverter) throws IOException, InterruptedException {
         Moedas moedas = apiClient.buscaApi("BRL");
         return valorParaConverter * moedas.getKRW();
     }
 
-    public double realParaIenes(double valorParaConverter) throws IOException, InterruptedException {
+    public double realParaIene(double valorParaConverter) throws IOException, InterruptedException {
         Moedas moedas = apiClient.buscaApi("BRL");
         return valorParaConverter * moedas.getJPY();
     }
 
-    public double ienesParaYuan(double valorParaConverter) throws IOException, InterruptedException {
+    public double ieneParaYuan(double valorParaConverter) throws IOException, InterruptedException {
         Moedas moedas = apiClient.buscaApi("JPY");
         return valorParaConverter * moedas.getCNY();
     }
-
 
 }

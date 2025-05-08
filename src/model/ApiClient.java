@@ -13,7 +13,7 @@ public class ApiClient {
     private String endereco;
 
     public String jsonDaApi() throws IOException, InterruptedException {
-        this.endereco = "https://v6.exchangerate-api.com/v6/***REMOVED***/latest/USD";
+        this.endereco = "https://v6.exchangerate-api.com/v6/YOU_API_KEY/latest/USD";
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(this.endereco))
                 .build();
@@ -23,9 +23,8 @@ public class ApiClient {
     }
 
     public Moedas buscaApi(String moeda) {
-        //Retorna uma api serilializada em Moedas
         try {
-            this.endereco = "https://v6.exchangerate-api.com/v6/***REMOVED***/latest/" + moeda.toUpperCase();
+            this.endereco = "https://v6.exchangerate-api.com/v6/YOU_KEY/" + moeda.toUpperCase();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(this.endereco))
                     .build();
