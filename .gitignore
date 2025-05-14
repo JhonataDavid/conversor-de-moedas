@@ -36,4 +36,4 @@ bin/
 
 ### k ###
 .keys
-/security/chave.txt
+/security/key.txt

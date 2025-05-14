@@ -9,35 +9,39 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ApiClient {
+
     private final HttpClient client = HttpClient.newHttpClient();
-    private String endereco;
+    private final Gson gson = new Gson();
+    private final String urlBase = "https://v6.exchangerate-api.com/v6/";
+    private final String apiKey = "YOU_API_KEY";
 
     public String jsonDaApi() throws IOException, InterruptedException {
-        this.endereco = "https://v6.exchangerate-api.com/v6/YOU_API_KEY/latest/USD";
+        String url = urlBase + apiKey + "/latest/USD";
+
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(this.endereco))
+                .uri(URI.create(url))
                 .build();
-        HttpResponse<String> response = client
-                .send(request, HttpResponse.BodyHandlers.ofString());
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         return response.body();
     }
 
     public Moedas buscaApi(String moeda) {
         try {
-            this.endereco = "https://v6.exchangerate-api.com/v6/YOU_API_KEY/" + moeda.toUpperCase();
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(this.endereco))
-                    .build();
-            HttpResponse<String> response = this.client
-                    .send(request, HttpResponse.BodyHandlers.ofString());
+            String url = urlBase + apiKey + "/latest/" + moeda.toUpperCase();
 
-            Gson gson = new Gson();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .build();
+
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
             ApiResponse apiResponse = gson.fromJson(response.body(), ApiResponse.class);
 
             return apiResponse.getConversion_rates();
 
         } catch (IOException | InterruptedException e) {
-            throw new RuntimeException("Erro ao acessar a api! " + e.getMessage());
+            throw new RuntimeException("Erro ao acessar a API: " + e.getMessage());
         }
     }
 }
